@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | The Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- HEAD SNIPPETS -->
+
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">The Studio</a>
+      <button class="nav__toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="brand-guide.html">Brand Guide</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <p class="section-tag">What We Offer</p>
+      <h1 class="page-header__title">Our Services</h1>
+      <p class="page-header__sub">Replace these placeholder services with your real ones. Each card has a data-sku attribute for Boulevard mapping.</p>
+    </div>
+  </header>
+
+  <section class="services services--page">
+    <div class="container">
+
+      <h2 class="services__category">Category One</h2>
+      <div class="services__grid">
+        <div class="card" data-sku="SVC-001" data-blvd-service-id="">
+          <div class="card__icon">&#9733;</div>
+          <h3>Service One</h3>
+          <p>Description of service one. Include what the client gets and any prep they should know about.</p>
+          <div class="card__meta">
+            <span class="card__price">$50</span>
+            <span class="card__duration">45 min</span>
+          </div>
+        </div>
+
+        <div class="card" data-sku="SVC-002" data-blvd-service-id="">
+          <div class="card__icon">&#9733;</div>
+          <h3>Service Two</h3>
+          <p>Description of service two. Include what the client gets and any prep they should know about.</p>
+          <div class="card__meta">
+            <span class="card__price">$75</span>
+            <span class="card__duration">60 min</span>
+          </div>
+        </div>
+
+        <div class="card" data-sku="SVC-003" data-blvd-service-id="">
+          <div class="card__icon">&#9733;</div>
+          <h3>Service Three</h3>
+          <p>Description of service three. Include what the client gets and any prep they should know about.</p>
+          <div class="card__meta">
+            <span class="card__price">$100</span>
+            <span class="card__duration">90 min</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="services__category">Category Two</h2>
+      <div class="services__grid">
+        <div class="card" data-sku="SVC-004" data-blvd-service-id="">
+          <div class="card__icon">&#9733;</div>
+          <h3>Service Four</h3>
+          <p>Description of service four. Add or remove categories and cards as needed for your brand.</p>
+          <div class="card__meta">
+            <span class="card__price">$40</span>
+            <span class="card__duration">30 min</span>
+          </div>
+        </div>
+
+        <div class="card" data-sku="SVC-005" data-blvd-service-id="">
+          <div class="card__icon">&#9733;</div>
+          <h3>Service Five</h3>
+          <p>Description of service five. Add or remove categories and cards as needed for your brand.</p>
+          <div class="card__meta">
+            <span class="card__price">$60</span>
+            <span class="card__duration">45 min</span>
+          </div>
+        </div>
+
+        <div class="card" data-sku="SVC-006" data-blvd-service-id="">
+          <div class="card__icon">&#9733;</div>
+          <h3>Service Six</h3>
+          <p>Description of service six. Add or remove categories and cards as needed for your brand.</p>
+          <div class="card__meta">
+            <span class="card__price">$120</span>
+            <span class="card__duration">90 min</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== BOOKING WIDGET ZONE ========== -->
+  <section class="booking" id="booking">
+    <div class="container">
+      <div class="booking__widget">
+        <div class="booking__placeholder">
+          <p class="section-tag">Book Online</p>
+          <h2 class="section-heading">Ready to book?</h2>
+          <p>Paste your <strong>Boulevard SBO embed</strong> or booking link here.<br>
+          See the README for setup instructions.</p>
+          <code>&lt;blvd-book-button business-id="YOUR_ID"&gt;&lt;/blvd-book-button&gt;</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <h3>The Studio</h3>
+          <p>Your tagline here</p>
+        </div>
+        <div class="footer__col">
+          <h4>Visit</h4>
+          <p>123 Main Street<br>Your City, ST 00000</p>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <p>hello@yourbrand.com</p>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 The Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!-- BODY SNIPPETS -->
+
+</body>
+</html>

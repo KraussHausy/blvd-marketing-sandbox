@@ -1,0 +1,17 @@
+{
+  "name": "blvd-marketing-sandbox-api",
+  "version": "1.0.0",
+  "description": "Boulevard API sync and webhook listener for the marketing sandbox",
+  "scripts": {
+    "webhooks": "node webhook-server.js",
+    "sync": "node blvd-client-sync.js",
+    "fetch-clients": "node examples/fetch-clients.js",
+    "push-klaviyo": "node examples/push-to-klaviyo.js",
+    "push-hubspot": "node examples/push-to-hubspot.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "node-fetch": "^3.3.0",
+    "dotenv": "^16.4.0"
+  }
+}
