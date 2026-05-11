@@ -3,325 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Guide | The Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Brand Guide</title>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      /* CUSTOMIZE THESE — they define your entire brand palette */
-      --bg:       #F5F5F0;
-      --surface:  #FFFFFF;
-      --text:     #2A2A2A;
-      --muted:    #777777;
-      --accent:   #4A6741;
-      --accent-lt:#8BA888;
-      --dark:     #1E1E1E;
-      --border:   #E0E0DA;
+      /* Replace these with your brand colors */
+      --bg:      #ffffff;
+      --text:    #222222;
+      --muted:   #777777;
+      --accent:  #2a5bd7;
+      --border:  #e5e5e5;
     }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-    }
-
-    .container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
-
-    .bg-header {
-      background: var(--dark);
-      color: #fff;
-      padding: 4rem 0;
-      text-align: center;
-    }
-    .bg-header h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .bg-header p { color: var(--accent-lt); font-size: 0.9rem; letter-spacing: 0.1em; }
-
-    .section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
-    .section:last-child { border-bottom: none; }
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    .section-intro { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
-
-    .how-to {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      font-size: 0.88rem;
-    }
-    .how-to strong { color: var(--accent); }
-    .how-to code {
-      background: var(--bg);
-      padding: 0.15em 0.4em;
-      border-radius: 3px;
-      font-size: 0.85em;
-    }
-
-    /* Colors */
-    .color-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-    .color-swatch { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
-    .color-swatch__block { height: 100px; }
-    .color-swatch__info { padding: 0.75rem; background: var(--surface); }
-    .color-swatch__name { font-weight: 500; font-size: 0.85rem; }
-    .color-swatch__hex { font-size: 0.75rem; color: var(--muted); font-family: monospace; }
-    .color-swatch__use { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
-
-    /* Typography */
-    .type-sample {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-      margin-bottom: 1rem;
-      background: var(--surface);
-    }
-    .type-sample__label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-    .type-display { font-family: 'DM Serif Display', serif; font-size: 2.5rem; line-height: 1.15; }
-    .type-body { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 1rem; line-height: 1.7; }
-    .type-ui { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.05em; }
-    .type-meta { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
-
-    /* Tone */
-    .tone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .tone-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      background: var(--surface);
-    }
-    .tone-card h4 { font-weight: 500; font-size: 0.85rem; margin-bottom: 0.5rem; }
-    .tone-card p { font-size: 0.88rem; color: var(--muted); }
-    .tone-do { border-left: 3px solid var(--accent); }
-    .tone-dont { border-left: 3px solid #ccc; }
-
-    .rules-list { list-style: none; }
-    .rules-list li {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.9rem;
-      display: flex;
-      gap: 0.75rem;
-    }
-    .rules-list li:last-child { border-bottom: none; }
-
-    @media (max-width: 768px) {
-      .tone-grid { grid-template-columns: 1fr; }
-      .color-grid { grid-template-columns: 1fr 1fr; }
-    }
+    body { font-family: system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.4rem; margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .swatch-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+    .swatch { width: 120px; }
+    .swatch-block { height: 60px; border-radius: 6px; border: 1px solid var(--border); }
+    .swatch-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+    .placeholder { border: 2px dashed var(--border); border-radius: 8px; padding: 2rem; color: var(--muted); text-align: center; margin: 1rem 0; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { font-weight: 600; }
+    .note { font-size: 0.85rem; color: var(--muted); }
   </style>
 </head>
 <body>
-
-  <div class="bg-header">
-    <div class="container">
-      <h1>Brand Guide</h1>
-      <p>THE STUDIO &mdash; YOUR TAGLINE HERE</p>
-    </div>
-  </div>
-
   <div class="container">
 
-    <!-- HOW TO USE THIS TEMPLATE -->
-    <div class="section">
-      <h2 class="section-title">How to Use This Template</h2>
-      <div class="how-to">
-        <p>This is a <strong>customizable brand guide template</strong>. To make it yours:</p>
-        <ol style="margin-top:0.75rem; padding-left:1.5rem; line-height:2;">
-          <li>Update the <code>:root</code> CSS variables at the top of this file to match your brand colors</li>
-          <li>Change the Google Fonts link to your brand fonts</li>
-          <li>Replace all placeholder text ("The Studio", "Your tagline") with your brand copy</li>
-          <li>Add your logo images to the <code>images/</code> folder</li>
-          <li>Fill in the tone-of-voice section with your real brand voice examples</li>
-        </ol>
-      </div>
-    </div>
+    <h1>Brand Guide</h1>
+    <p class="note">Fill this in as you define your brand. Delete sections you don't need, add ones you do.</p>
 
-    <!-- BRAND OVERVIEW -->
-    <div class="section">
-      <h2 class="section-title">Brand Overview</h2>
-      <p class="section-intro">Write 1-2 sentences describing your brand personality. What's the feeling you want people to associate with your business?</p>
-      <div class="tone-grid">
-        <div class="tone-card">
-          <h4>Mission</h4>
-          <p>Your mission statement goes here. Why does this business exist? What change are you making in people's lives?</p>
-        </div>
-        <div class="tone-card">
-          <h4>Audience</h4>
-          <p>Describe your target audience. Age range, interests, what they care about, what brings them to you.</p>
-        </div>
-      </div>
-    </div>
+    <!-- ===== LOGO ===== -->
+    <h2>Logo</h2>
+    <div class="placeholder">Drop your logo files in the images/ folder and link them here.</div>
 
-    <!-- LOGO -->
-    <div class="section">
-      <h2 class="section-title">Logo</h2>
-      <p class="section-intro">Add your logo files to the images/ folder and update the src paths below. Include light background, dark background, and icon-only versions.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; margin-bottom:2rem;">
-        <div class="tone-card" style="text-align:center; padding:2rem;">
-          <div style="background:var(--bg); border-radius:8px; padding:2rem; margin-bottom:1rem; color:var(--muted); font-size:0.85rem;">Logo on light bg</div>
-          <p style="font-size:0.8rem; color:var(--muted);">Primary</p>
-        </div>
-        <div class="tone-card" style="text-align:center; padding:2rem; background:var(--dark);">
-          <div style="background:rgba(255,255,255,0.1); border-radius:8px; padding:2rem; margin-bottom:1rem; color:rgba(255,255,255,0.5); font-size:0.85rem;">Logo on dark bg</div>
-          <p style="font-size:0.8rem; color:var(--accent-lt);">Reversed</p>
-        </div>
-        <div class="tone-card" style="text-align:center; padding:2rem;">
-          <div style="background:var(--bg); border-radius:8px; padding:2rem; margin-bottom:1rem; color:var(--muted); font-size:0.85rem;">Icon only</div>
-          <p style="font-size:0.8rem; color:var(--muted);">Favicon / social</p>
-        </div>
+    <!-- ===== COLORS ===== -->
+    <h2>Colors</h2>
+    <p class="note">Update the CSS variables in :root above to match these, and do the same in css/style.css.</p>
+    <div class="swatch-row">
+      <div class="swatch">
+        <div class="swatch-block" style="background: var(--text);"></div>
+        <div class="swatch-label">Primary<br><code>#222222</code></div>
       </div>
-      <ul class="rules-list">
-        <li><span>&#10003;</span> Keep clear space around the logo equal to the height of one character in the wordmark</li>
-        <li><span>&#10003;</span> Minimum size: 32px (icon), 120px (full logo)</li>
-        <li><span>&#10007;</span> Don't stretch, rotate, add shadows, or change logo colors</li>
-        <li><span>&#10007;</span> Don't place on busy or low-contrast backgrounds</li>
-      </ul>
+      <div class="swatch">
+        <div class="swatch-block" style="background: var(--accent);"></div>
+        <div class="swatch-label">Accent<br><code>#2a5bd7</code></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background: var(--muted);"></div>
+        <div class="swatch-label">Muted<br><code>#777777</code></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background: var(--bg); border: 1px solid var(--border);"></div>
+        <div class="swatch-label">Background<br><code>#ffffff</code></div>
+      </div>
     </div>
+    <!-- Add more swatches as needed -->
 
-    <!-- COLORS -->
-    <div class="section">
-      <h2 class="section-title">Color Palette</h2>
-      <p class="section-intro">Update the hex values and names below to match your brand. These should mirror the CSS variables in <code>css/style.css</code>.</p>
-      <div class="color-grid">
-        <div class="color-swatch">
-          <div class="color-swatch__block" style="background: #1E1E1E;"></div>
-          <div class="color-swatch__info">
-            <div class="color-swatch__name">Dark</div>
-            <div class="color-swatch__hex">#1E1E1E</div>
-            <div class="color-swatch__use">Nav, footer, primary buttons</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch__block" style="background: #2A2A2A;"></div>
-          <div class="color-swatch__info">
-            <div class="color-swatch__name">Text</div>
-            <div class="color-swatch__hex">#2A2A2A</div>
-            <div class="color-swatch__use">Body text, headings</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch__block" style="background: #4A6741;"></div>
-          <div class="color-swatch__info">
-            <div class="color-swatch__name">Accent</div>
-            <div class="color-swatch__hex">#4A6741</div>
-            <div class="color-swatch__use">Tags, links, icons, hover</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch__block" style="background: #8BA888;"></div>
-          <div class="color-swatch__info">
-            <div class="color-swatch__name">Accent Light</div>
-            <div class="color-swatch__hex">#8BA888</div>
-            <div class="color-swatch__use">Secondary accent, subtle text</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch__block" style="background: #E0E0DA;"></div>
-          <div class="color-swatch__info">
-            <div class="color-swatch__name">Border</div>
-            <div class="color-swatch__hex">#E0E0DA</div>
-            <div class="color-swatch__use">Borders, dividers</div>
-          </div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch__block" style="background: #F5F5F0;"></div>
-          <div class="color-swatch__info">
-            <div class="color-swatch__name">Background</div>
-            <div class="color-swatch__hex">#F5F5F0</div>
-            <div class="color-swatch__use">Page background</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- ===== TYPOGRAPHY ===== -->
+    <h2>Typography</h2>
+    <table>
+      <tr><th>Usage</th><th>Font</th><th>Weight</th><th>Size</th></tr>
+      <tr><td>Headings</td><td>system-ui</td><td>700</td><td>1.5-3rem</td></tr>
+      <tr><td>Body</td><td>system-ui</td><td>400</td><td>1rem</td></tr>
+      <tr><td>UI / Buttons</td><td>system-ui</td><td>500</td><td>0.85rem</td></tr>
+    </table>
+    <p class="note">Swap to Google Fonts or your own fonts by updating the &lt;link&gt; in each HTML file.</p>
 
-    <!-- TYPOGRAPHY -->
-    <div class="section">
-      <h2 class="section-title">Typography</h2>
-      <p class="section-intro">Two fonts keep things clean. Update the Google Fonts link in each HTML file to swap families.</p>
-      <div class="type-sample">
-        <div class="type-sample__label">Display &mdash; DM Serif Display</div>
-        <div class="type-display">Your Headline Goes Here.</div>
-        <div class="type-meta">Use for: hero headlines, section headings, service names. Sizes: 2rem - 5.5rem.</div>
-      </div>
-      <div class="type-sample">
-        <div class="type-sample__label">Body &mdash; DM Sans, Light (300)</div>
-        <div class="type-body">This is what body text looks like. It should be easy to read at any size and feel natural on screens of all sizes.</div>
-        <div class="type-meta">Use for: paragraphs, descriptions. Size: 0.9rem - 1.15rem. Line-height: 1.7.</div>
-      </div>
-      <div class="type-sample">
-        <div class="type-sample__label">UI &mdash; DM Sans, Medium (500)</div>
-        <div class="type-ui">BOOK NOW &nbsp;|&nbsp; VIEW SERVICES &nbsp;|&nbsp; SUBSCRIBE</div>
-        <div class="type-meta">Use for: buttons, nav links, tags, labels. Size: 0.75rem - 0.85rem.</div>
-      </div>
-    </div>
+    <!-- ===== TONE OF VOICE ===== -->
+    <h2>Tone of Voice</h2>
+    <table>
+      <tr><th>Do</th><th>Don't</th></tr>
+      <tr><td></td><td></td></tr>
+      <tr><td></td><td></td></tr>
+    </table>
 
-    <!-- TONE -->
-    <div class="section">
-      <h2 class="section-title">Tone of Voice</h2>
-      <p class="section-intro">Define how your brand sounds. Fill in real examples from your marketing copy, social posts, and customer communications.</p>
-      <div class="tone-grid">
-        <div class="tone-card tone-do">
-          <h4>Do</h4>
-          <p>"Write example phrases that sound like your brand."<br>"Keep them real — pull from actual copy you've written."<br>"Show, don't tell."</p>
-        </div>
-        <div class="tone-card tone-dont">
-          <h4>Don't</h4>
-          <p>"Don't sound like a corporate press release."<br>"Avoid cliches and buzzwords."<br>"Skip the exclamation points!!!"</p>
-        </div>
-        <div class="tone-card tone-do">
-          <h4>Brand Adjectives</h4>
-          <p>List 5-6 words that describe your brand personality. Example: Warm, Sharp, Modern, Grounded, Approachable.</p>
-        </div>
-        <div class="tone-card tone-dont">
-          <h4>Not These</h4>
-          <p>List words your brand should never use. Example: Luxury, Exclusive, Bespoke, Synergy, Game-changer.</p>
-        </div>
-      </div>
-    </div>
+    <!-- ===== IMAGERY ===== -->
+    <h2>Imagery</h2>
+    <div class="placeholder">Add photography guidelines, illustration style, or example images here.</div>
 
-    <!-- DIGITAL USAGE -->
-    <div class="section">
-      <h2 class="section-title">Digital Usage</h2>
-      <p class="section-intro">Guidelines for using the brand across web, social, and third-party tools.</p>
-      <ul class="rules-list">
-        <li><span>&#9758;</span> <strong>Favicon:</strong> Use the icon-only logo at 32x32px</li>
-        <li><span>&#9758;</span> <strong>Social profile:</strong> Icon on brand background color</li>
-        <li><span>&#9758;</span> <strong>Email header:</strong> Full logo, max 200px wide</li>
-        <li><span>&#9758;</span> <strong>Klaviyo popups:</strong> Match brand background color, accent color, and body font</li>
-        <li><span>&#9758;</span> <strong>HubSpot forms:</strong> Use brand fonts and button colors for consistency</li>
-        <li><span>&#9758;</span> <strong>Boulevard widget:</strong> Apply custom CSS to match brand palette</li>
-        <li><span>&#9758;</span> <strong>Buttons:</strong> Dark fill with white text. Hover: accent color</li>
-      </ul>
-    </div>
+    <!-- ===== ANYTHING ELSE ===== -->
+    <h2>Additional Guidelines</h2>
+    <div class="placeholder">Add sections for social media, email templates, print, packaging — whatever your brand needs.</div>
 
   </div>
-
-  <div style="background: var(--dark); color: var(--accent-lt); text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.8rem;">
-    Brand Guide Template &mdash; Customize for your brand. For internal use.
-  </div>
-
 </body>
 </html>

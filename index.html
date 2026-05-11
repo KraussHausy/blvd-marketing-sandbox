@@ -3,183 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Studio | Your Brand Here</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>My Brand</title>
   <link rel="stylesheet" href="css/style.css">
 
   <!-- ============================================================
        HEAD SNIPPETS
-       Paste any <script> tags that need to load in <head> here.
-       Examples: Klaviyo, Mailchimp, Google Analytics, Meta Pixel,
-       Google Tag Manager, HubSpot tracking code
+       Paste tracking scripts here: Klaviyo, Google Analytics,
+       Meta Pixel, HubSpot tracking, Google Tag Manager, etc.
        ============================================================ -->
 
 </head>
 <body>
 
-  <!-- ========== NAV ========== -->
-  <nav class="nav">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo">The Studio</a>
-      <button class="nav__toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav__links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="brand-guide.html">Brand Guide</a></li>
-      </ul>
-    </div>
+  <nav>
+    <a href="index.html"><strong>My Brand</strong></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <!-- Add pages as you build them:
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      -->
+    </ul>
   </nav>
 
-  <!-- ========== HERO ========== -->
-  <header class="hero" id="home">
-    <div class="hero__content">
-      <p class="hero__tag">Welcome to The Studio</p>
-      <h1 class="hero__title">Your Headline<br>Goes Here.</h1>
-      <p class="hero__sub">Replace this with your brand's tagline or value proposition. This is the first thing visitors see.</p>
-      <div class="hero__actions">
-        <a href="services.html" class="btn btn--primary">View Services</a>
-        <a href="contact.html" class="btn btn--outline">Get in Touch</a>
+  <main>
+    <!-- Build your site here. Some starting points:
+
+    A hero section:
+    <section class="hero">
+      <h1>Your headline</h1>
+      <p>Your subheadline</p>
+    </section>
+
+    A services grid:
+    <section>
+      <div class="grid">
+        <div class="card">...</div>
+        <div class="card">...</div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- ========== ABOUT PREVIEW ========== -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about__grid">
-        <div class="about__image">
-          <div class="placeholder-img">Your Photo Here</div>
-        </div>
-        <div class="about__text">
-          <p class="section-tag">Our Story</p>
-          <h2>Tell visitors who you are.</h2>
-          <p>Write 2-3 sentences about your business. What makes you different? Why should someone choose you? Keep it real and keep it short.</p>
-          <p>This section gives visitors a reason to trust you before they scroll further.</p>
-          <a href="about.html" class="btn btn--outline" style="margin-top:1rem;">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    An email signup (replace with Klaviyo/Mailchimp/HubSpot embed):
+    <section>
+      <form>
+        <input type="email" placeholder="your@email.com">
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
 
-  <!-- ========== SERVICES PREVIEW ========== -->
-  <section class="services" id="services">
-    <div class="container">
-      <p class="section-tag center">What We Offer</p>
-      <h2 class="section-heading center">Services</h2>
-      <p class="section-sub center">Replace these with your actual services. Add or remove cards as needed.</p>
+    A Boulevard booking button:
+    <blvd-book-button business-id="YOUR_ID">Book Now</blvd-book-button>
 
-      <div class="services__grid">
+    -->
+  </main>
 
-        <div class="card" data-sku="SVC-001">
-          <div class="card__icon">&#9733;</div>
-          <h3>Service One</h3>
-          <p>Brief description of this service. What does the client get? How long does it take?</p>
-          <div class="card__meta">
-            <span class="card__price">$50</span>
-            <span class="card__duration">45 min</span>
-          </div>
-        </div>
-
-        <div class="card" data-sku="SVC-002">
-          <div class="card__icon">&#9733;</div>
-          <h3>Service Two</h3>
-          <p>Brief description of this service. What does the client get? How long does it take?</p>
-          <div class="card__meta">
-            <span class="card__price">$75</span>
-            <span class="card__duration">60 min</span>
-          </div>
-        </div>
-
-        <div class="card" data-sku="SVC-003">
-          <div class="card__icon">&#9733;</div>
-          <h3>Service Three</h3>
-          <p>Brief description of this service. What does the client get? How long does it take?</p>
-          <div class="card__meta">
-            <span class="card__price">$100</span>
-            <span class="card__duration">90 min</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="center" style="margin-top:2rem;">
-        <a href="services.html" class="btn btn--outline">See All Services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== NEWSLETTER / EMAIL CAPTURE ========== -->
-  <section class="newsletter" id="newsletter">
-    <div class="container">
-      <div class="newsletter__inner">
-        <h2>Stay in the Loop</h2>
-        <p>Sign up for updates, promotions, and news. Replace this form with your Klaviyo, Mailchimp, or HubSpot embed.</p>
-
-        <!-- NEWSLETTER FORM PLACEHOLDER
-             Replace this <form> with your email platform's embed code.
-             See README.md for setup instructions for each platform. -->
-        <div id="email-form-placeholder">
-          <form class="newsletter__form" id="signup-form">
-            <input type="email" name="email" placeholder="your@email.com" required>
-            <button type="submit" class="btn btn--primary">Subscribe</button>
-          </form>
-        </div>
-        <p class="newsletter__note">No spam. Unsubscribe anytime.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <h3>The Studio</h3>
-          <p>Your tagline here</p>
-        </div>
-        <div class="footer__col">
-          <h4>Visit</h4>
-          <p>123 Main Street<br>Your City, ST 00000</p>
-          <p>Mon-Sat: 9am - 7pm<br>Sun: Closed</p>
-        </div>
-        <div class="footer__col">
-          <h4>Connect</h4>
-          <p>hello@yourbrand.com</p>
-          <p>(555) 123-4567</p>
-          <div class="footer__social">
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="TikTok">TK</a>
-            <a href="#" aria-label="Facebook">FB</a>
-          </div>
-        </div>
-        <div class="footer__col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 The Studio. All rights reserved.</p>
-      </div>
-    </div>
+  <footer>
+    <p>&copy; 2026 My Brand</p>
   </footer>
 
-  <!-- ========== SCRIPTS ========== -->
   <script src="js/main.js"></script>
 
   <!-- ============================================================
        BODY SNIPPETS
-       Paste any third-party scripts that load before </body> here.
-       Examples: Boulevard SBO widget, Klaviyo popup, chat widgets,
-       HubSpot chatbot, Intercom
+       Paste widget scripts here: Boulevard SBO, Klaviyo popup,
+       chat widgets, HubSpot chatbot, Intercom, etc.
        ============================================================ -->
 
 </body>

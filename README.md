@@ -1,122 +1,96 @@
 # Boulevard Marketing Sandbox
 
-A ready-to-go sandbox for testing marketing workflows with Boulevard. Clone it, customize it, break stuff, learn things.
+A blank canvas for testing marketing workflows with Boulevard. Clone it, build whatever you need, break stuff, learn things.
 
-**What's inside:**
+## What's in the box
 
-- A multi-page website (GitHub Pages ready) with clearly marked snippet zones
-- Boulevard API scripts for syncing client/audience data
-- A webhook listener for testing Boulevard events
-- A customizable brand guide template
-- Setup guides for Klaviyo, HubSpot, Mailchimp, and Boulevard forms (below)
+| Thing | What it is |
+|-------|-----------|
+| `index.html` | Empty starter page with snippet zones for tracking/widgets |
+| `brand-guide.html` | Blank brand guide template — fill in as you go |
+| `css/style.css` | Minimal CSS with brand variables at the top |
+| `js/main.js` | Empty JS file — add what you need |
+| `api/` | Boulevard API sync scripts + webhook listener |
 
 ---
 
 ## Quick Start
 
-### 1. Clone and deploy the website
+### 1. Get the site running
 
 ```bash
-# Fork this repo, then clone your fork
 git clone https://github.com/YOUR_ORG/blvd-marketing-sandbox.git
 cd blvd-marketing-sandbox
 ```
 
-Enable GitHub Pages: **Settings > Pages > Source: Deploy from a branch > main > / (root)**
+**Local preview:** open `index.html` in a browser, or:
+```bash
+python3 -m http.server 8080
+# visit http://localhost:8080
+```
 
-Your site will be live at `https://YOUR_ORG.github.io/blvd-marketing-sandbox/`
+**Deploy to GitHub Pages:** Settings > Pages > Source: main branch > / (root). Done.
 
-### 2. Set up the API tools
+### 2. Make it yours
+
+Open `css/style.css` and change the variables at the top:
+
+```css
+:root {
+  --color-bg:      #ffffff;    /* page background */
+  --color-text:    #222222;    /* body text */
+  --color-accent:  #2a5bd7;    /* links, buttons, highlights */
+  --color-border:  #e5e5e5;    /* borders, dividers */
+  --font-body:     system-ui;  /* swap for Google Fonts, etc. */
+}
+```
+
+### 3. Add pages
+
+Create new `.html` files as needed. Copy the structure from `index.html` — the `<head>`, `<nav>`, and snippet zones.
+
+### 4. Set up the API tools (optional)
 
 ```bash
 cd api
-cp .env.example .env       # Fill in your Boulevard API key
+cp .env.example .env    # fill in your credentials
 npm install
 ```
 
-### 3. Customize your brand
+---
 
-1. Open `css/style.css` and change the CSS variables in `:root` (colors, fonts)
-2. Open `brand-guide.html` and fill in your brand details
-3. Replace placeholder text across all `.html` files (search for "The Studio", "Your", "placeholder")
+## Adding Snippets
+
+Every page has two clearly marked zones for pasting third-party code:
+
+```html
+<!-- HEAD SNIPPETS — tracking pixels, analytics -->
+<!-- (in the <head> section) -->
+
+<!-- BODY SNIPPETS — widgets, popups, chat -->
+<!-- (before </body>) -->
+```
+
+Just paste the code from your platform into the right zone.
 
 ---
 
-## Website Structure
+## Boulevard API & Webhooks
 
-| File | What it is |
-|------|------------|
-| `index.html` | Homepage — hero, about preview, services preview, newsletter signup, footer |
-| `services.html` | Full services page with categories and a booking widget zone |
-| `about.html` | About page — story, values, team grid |
-| `contact.html` | Contact form, info cards, and a map embed zone |
-| `brand-guide.html` | Customizable brand guide template (self-contained — its own CSS) |
-| `css/style.css` | All site styles — edit the `:root` variables to rebrand instantly |
-| `js/main.js` | Mobile nav, scroll animations, placeholder form handlers |
-
-### Adding Snippets
-
-Every page has clearly marked zones for pasting third-party code:
-
-**In `<head>`** (tracking pixels, analytics):
-```html
-<!-- HEAD SNIPPETS — paste Klaviyo, GA4, Meta Pixel, HubSpot tracking here -->
-```
-
-**Before `</body>`** (widgets, popups, chat):
-```html
-<!-- BODY SNIPPETS — paste Boulevard SBO, Klaviyo popup, chat widgets here -->
-```
-
-**Newsletter section** in `index.html`:
-Replace the `<form id="signup-form">` with your email platform's embed code.
-
-**Contact form** in `contact.html`:
-Replace the `<form id="contact-form">` with a HubSpot or Klaviyo form embed.
-
-**Booking widget** in `services.html`:
-Replace the placeholder with your Boulevard SBO embed or booking link.
-
----
-
-## Boulevard API Sync
-
-Scripts in the `api/` folder let you pull client data from Boulevard and push it to marketing platforms.
-
-### Fetch clients
+### Sync client data
 
 ```bash
 cd api
-npm run fetch-clients       # Shows first 10 clients
-npm run sync                # Exports all clients as JSON
-npm run sync > clients.json # Save to file
+npm run fetch-clients       # preview first 10 clients
+npm run sync                # export all clients as JSON
+npm run sync > clients.json # save to file
+npm run push-klaviyo        # sync clients to Klaviyo
+npm run push-hubspot        # sync clients to HubSpot
 ```
 
-### Push to marketing platforms
+Each script needs credentials in `.env` — see `.env.example` for which keys.
 
-```bash
-npm run push-klaviyo    # Sync clients to a Klaviyo list
-npm run push-hubspot    # Sync clients to HubSpot contacts
-```
-
-Each script requires credentials in `.env` — see `.env.example` for which keys you need.
-
-### Customize the sync
-
-The scripts are in `api/examples/`. They're intentionally simple so you can modify them:
-
-- Change which client fields get synced
-- Add filtering (e.g., only sync clients from the last 30 days)
-- Add tags or custom properties
-- Schedule the sync with cron
-
----
-
-## Webhooks
-
-The webhook listener receives events from Boulevard in real time — new clients, completed appointments, orders, etc.
-
-### Start the listener
+### Listen for webhooks
 
 ```bash
 cd api
@@ -124,148 +98,85 @@ npm run webhooks
 # Listening on http://localhost:3001/webhooks/boulevard
 ```
 
-### Expose it publicly for testing
-
-Use [ngrok](https://ngrok.com) (free) to create a public URL:
-
+Expose locally with [ngrok](https://ngrok.com) for testing:
 ```bash
 ngrok http 3001
-# Copy the https://xxxx.ngrok.io URL
+# paste the https URL into Boulevard > Settings > Developers > Webhooks
 ```
 
-Then in Boulevard: **Settings > Developers > Webhooks** — add a new webhook pointing to:
-```
-https://xxxx.ngrok.io/webhooks/boulevard
-```
-
-### Available events
-
-The webhook server logs all incoming events. Common ones to test:
-
-| Event | When it fires |
-|-------|--------------|
-| `client.created` | New client added |
-| `client.updated` | Client profile changed |
-| `appointment.created` | New appointment booked |
-| `appointment.completed` | Appointment marked complete |
-| `order.completed` | Product or service order completed |
-
-Add your automation logic in `webhook-server.js` where the comment block says `Add your automation logic here`.
+The server logs every event it receives. Add your automation logic in `webhook-server.js` where the comments say to.
 
 ---
 
-## Setting Up Forms on Marketing Platforms
+## Setting Up Forms
 
 ### Klaviyo
 
-**Email signup form (popup or embedded):**
+**Signup form (popup or embedded):**
+1. Klaviyo > Sign Up Forms > Create Form
+2. Design it, set the target list
+3. Publish and copy the embed code
+4. Paste the `<script>` into `<!-- HEAD SNIPPETS -->`
+5. For embedded forms, paste the `<div>` wherever you want it in your HTML
 
-1. In Klaviyo, go to **Sign Up Forms > Create Form**
-2. Design your form and set the target list
-3. Under **Targeting & Behavior**, set your display rules
-4. Click **Publish** and copy the embed code
-5. Paste the `<script>` tag into the `<!-- HEAD SNIPPETS -->` zone in your HTML files
-6. For embedded forms, also paste the `<div>` into the newsletter section of `index.html`
+**Site tracking:**
+1. Klaviyo > Settings > Setup > Active on Site
+2. Copy the JS snippet
+3. Paste into `<!-- HEAD SNIPPETS -->` on every page
 
-**Klaviyo tracking (for website activity):**
-
-1. In Klaviyo, go to **Settings > Setup > Active on Site**
-2. Copy the JavaScript snippet (starts with `<script>`)
-3. Paste it into the `<!-- HEAD SNIPPETS -->` zone on every page
-
-**Klaviyo + Boulevard sync:**
-
-Use `api/examples/push-to-klaviyo.js` to push Boulevard clients into a Klaviyo list. Set this up as a one-time import or schedule it to run regularly.
+**Boulevard client sync:** `npm run push-klaviyo` (see API section above)
 
 ---
 
 ### HubSpot
 
-**Embedded contact form:**
+**Embedded form:**
+1. HubSpot > Marketing > Forms > Create Form
+2. Build your form, click Publish > Embed tab
+3. Copy the embed code (`<script>` + `<div>`)
+4. Paste into your HTML where you want the form
 
-1. In HubSpot, go to **Marketing > Forms > Create Form**
-2. Build your form (name, email, phone, message, etc.)
-3. Click **Publish** and go to the **Embed** tab
-4. Copy the embed code (it's a `<script>` + `<div>`)
-5. Replace the placeholder `<form>` in `contact.html` with HubSpot's embed code
+**Tracking code:**
+1. HubSpot > Settings > Tracking & Analytics > Tracking Code
+2. Copy the JS snippet
+3. Paste into `<!-- HEAD SNIPPETS -->` on every page
 
-**HubSpot tracking code (for website analytics):**
-
-1. In HubSpot, go to **Settings > Tracking & Analytics > Tracking Code**
-2. Copy the JavaScript snippet
-3. Paste it into the `<!-- HEAD SNIPPETS -->` zone on every page
-
-**HubSpot + Boulevard sync:**
-
-Use `api/examples/push-to-hubspot.js` to push Boulevard clients into HubSpot as contacts. The script uses the batch upsert API so it won't create duplicates.
+**Boulevard client sync:** `npm run push-hubspot` (see API section above)
 
 ---
 
 ### Mailchimp
 
-**Email signup form (embedded):**
+**Embedded signup form:**
+1. Mailchimp > Audience > Signup Forms > Embedded Forms
+2. Customize fields, copy the HTML
+3. Paste into your page where you want the form
 
-1. In Mailchimp, go to **Audience > Signup Forms > Embedded Forms**
-2. Customize the fields you want (email, first name, last name)
-3. Copy the generated HTML
-4. Replace the placeholder `<form>` in the newsletter section of `index.html`
+**Popup:**
+1. Mailchimp > Audience > Signup Forms > Subscriber Pop-up
+2. Design and publish
+3. Paste the Mailchimp site connection `<script>` into `<!-- HEAD SNIPPETS -->`
 
-**Mailchimp popup:**
-
-1. Go to **Audience > Signup Forms > Subscriber Pop-up**
-2. Design and configure your popup
-3. Click **Publish** — Mailchimp adds it via the connected site script
-4. Paste the Mailchimp site connection `<script>` into `<!-- HEAD SNIPPETS -->`
-
-**Mailchimp + Boulevard sync:**
-
-The pattern is the same as Klaviyo/HubSpot. Use the Boulevard client sync script (`npm run sync`) to export clients as JSON, then use Mailchimp's API or CSV import to add them to an audience. A Mailchimp push script can be built following the pattern in `api/examples/push-to-klaviyo.js`.
+**Boulevard client sync:** Export clients with `npm run sync > clients.json`, then import via Mailchimp's audience CSV import or build a push script following the pattern in `api/examples/push-to-klaviyo.js`.
 
 ---
 
 ### Boulevard Self-Booking Online (SBO)
 
-**Add booking to your website:**
-
-1. In Boulevard Dashboard, go to **Settings > Online Booking > Self-Booking Online**
-2. Configure your booking flow (services, locations, etc.)
-3. Copy the embed code — it looks like:
+**Booking widget:**
+1. Boulevard Dashboard > Settings > Online Booking > Self-Booking Online
+2. Copy the embed code:
    ```html
    <script src="https://booking.boulevard.io/widget.js"></script>
    <blvd-book-button business-id="YOUR_BUSINESS_ID">Book Now</blvd-book-button>
    ```
-4. Paste the `<script>` into `<!-- BODY SNIPPETS -->`
-5. Add the `<blvd-book-button>` wherever you want the booking CTA
+3. Paste the `<script>` into `<!-- BODY SNIPPETS -->`
+4. Put the `<blvd-book-button>` wherever you want it
 
-**Full-page booking:**
-
-If you want a dedicated booking page instead of a widget, link directly to your Boulevard booking URL:
+**Direct link (no widget):**
 ```html
-<a href="https://booking.boulevard.io/YOUR_BUSINESS_ID" class="btn btn--primary">Book Online</a>
+<a href="https://booking.boulevard.io/YOUR_BUSINESS_ID">Book Online</a>
 ```
-
----
-
-## Creating Your Own Brand Guide
-
-The `brand-guide.html` file is a self-contained template. To customize it:
-
-1. **Colors:** Update the CSS variables in the `<style>` block at the top
-2. **Fonts:** Change the Google Fonts `<link>` to your brand fonts
-3. **Logo:** Add your logo files to `images/` and update the `src` paths
-4. **Content:** Replace all placeholder text with your real brand copy
-
-The brand guide uses its own inline CSS (not `style.css`) so it can be shared independently.
-
-### Quick brand customization checklist
-
-- [ ] Update `:root` variables in `css/style.css` (site) and `brand-guide.html` (guide)
-- [ ] Change Google Fonts in all HTML `<head>` sections
-- [ ] Replace "The Studio" with your brand name (all HTML files)
-- [ ] Add your logo to `images/`
-- [ ] Fill in address, phone, email, and social links
-- [ ] Write real service names, descriptions, and prices
-- [ ] Complete the tone-of-voice section in the brand guide
 
 ---
 
@@ -273,47 +184,26 @@ The brand guide uses its own inline CSS (not `style.css`) so it can be shared in
 
 ```
 blvd-marketing-sandbox/
-├── index.html              # Homepage
-├── services.html           # Services + booking widget zone
-├── about.html              # About, values, team
-├── contact.html            # Contact form + info
-├── brand-guide.html        # Brand guide template
-├── css/
-│   └── style.css           # All styles (edit :root to rebrand)
-├── js/
-│   └── main.js             # Nav, animations, form handlers
-├── images/                 # Drop your images here
+├── index.html              # Starter page (blank canvas + snippet zones)
+├── brand-guide.html        # Brand guide template (fill in as you go)
+├── css/style.css           # Minimal CSS with brand variables
+├── js/main.js              # Empty — add your own JS
+├── images/                 # Drop images here
 ├── api/
-│   ├── package.json        # Node.js dependencies
-│   ├── .env.example        # Credential template
-│   ├── blvd-client-sync.js # Full client export from Boulevard
-│   ├── webhook-server.js   # Webhook event listener
+│   ├── .env.example        # Credential template (never commit .env)
+│   ├── package.json
+│   ├── blvd-client-sync.js # Export all clients from Boulevard
+│   ├── webhook-server.js   # Receive Boulevard webhook events
 │   └── examples/
-│       ├── fetch-clients.js    # Quick client fetch
-│       ├── push-to-klaviyo.js  # Sync clients to Klaviyo
-│       └── push-to-hubspot.js  # Sync clients to HubSpot
-├── .gitignore
-└── README.md               # This file
+│       ├── fetch-clients.js
+│       ├── push-to-klaviyo.js
+│       └── push-to-hubspot.js
+└── README.md
 ```
-
----
-
-## Hosting
-
-The website is pure HTML/CSS/JS — no build step, no framework, no backend. Deploy it anywhere:
-
-- **GitHub Pages** (free) — just enable it in repo settings
-- **Netlify** — drag and drop the repo
-- **Vercel** — connect the repo
-- Any static hosting
-
-The `api/` scripts run separately on your local machine (or a server). They're not part of the hosted website.
-
----
 
 ## Tips
 
-- **Don't commit `.env` files.** They contain API keys. The `.gitignore` already excludes them.
-- **Test webhooks locally** with ngrok before pointing Boulevard at a real server.
-- **Start small.** Get the website running first, then add snippets one at a time.
-- **Check the Boulevard API docs** at [developers.joinblvd.com](https://developers.joinblvd.com) for the full GraphQL schema and available queries.
+- **Don't commit `.env` files.** They contain API keys. `.gitignore` already handles this.
+- **Test webhooks locally** with ngrok before connecting Boulevard to a real endpoint.
+- **Check the Boulevard API docs** at [developers.joinblvd.com](https://developers.joinblvd.com) for the full GraphQL schema.
+- **Add pages freely.** Just create a new `.html` file and copy the snippet zones from `index.html`.
