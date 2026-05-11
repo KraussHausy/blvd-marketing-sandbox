@@ -3,72 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Brand</title>
+  <title>Home | Glow Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- ============================================================
-       HEAD SNIPPETS
-       Paste tracking scripts here: Klaviyo, Google Analytics,
-       Meta Pixel, HubSpot tracking, Google Tag Manager, etc.
+       HEAD SNIPPETS — paste tracking scripts here
        ============================================================ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEST12345"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-TEST12345');</script>
+
 
 </head>
 <body>
 
   <nav>
-    <a href="index.html"><strong>My Brand</strong></a>
+    <a href="index.html"><strong>Glow Studio</strong></a>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <!-- Add pages as you build them:
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="contact.html">Contact</a></li>
-      -->
+      <li><a href="brand-guide.html">Brand Guide</a></li>
     </ul>
   </nav>
 
   <main>
-    <!-- Build your site here. Some starting points:
-
-    A hero section:
     <section class="hero">
-      <h1>Your headline</h1>
-      <p>Your subheadline</p>
-    </section>
-
-    A services grid:
-    <section>
-      <div class="grid">
-        <div class="card">...</div>
-        <div class="card">...</div>
+      <h1>Glow Studio</h1>
+      <p class="tagline">Radiance starts here</p>
+      <div class="hero-actions">
+        <a href="services.html" class="btn btn-primary">View Services</a>
+        <a href="contact.html" class="btn btn-outline">Get in Touch</a>
       </div>
     </section>
 
-    An email signup (replace with Klaviyo/Mailchimp/HubSpot embed):
+    <!-- Add your content below. Some ideas:
+
     <section>
-      <form>
-        <input type="email" placeholder="your@email.com">
-        <button type="submit">Subscribe</button>
-      </form>
+      <h2>About</h2>
+      <p>Your story here.</p>
     </section>
 
-    A Boulevard booking button:
-    <blvd-book-button business-id="YOUR_ID">Book Now</blvd-book-button>
+    <section>
+      <h2>Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Service Name</h3>
+          <p>Description — $price — duration</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <h2>Stay in the Loop</h2>
+      Replace this with your Klaviyo / Mailchimp / HubSpot form embed.
+    </section>
 
     -->
   </main>
 
   <footer>
-    <p>&copy; 2026 My Brand</p>
+    <div class="footer-grid">
+      <div>
+        <strong>Glow Studio</strong>
+        <p>Radiance starts here</p>
+      </div>
+      <div>
+        <p>456 Elm Avenue<br>Austin, TX 78701</p>
+        <p>(512) 555-0199<br>hello@glowstudio.com</p>
+      </div>
+      <div>
+        <a href="https://instagram.com/glowstudio">Instagram</a>
+        <a href="https://facebook.com/glowstudio">Facebook</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 Glow Studio</p>
   </footer>
 
   <script src="js/main.js"></script>
 
   <!-- ============================================================
-       BODY SNIPPETS
-       Paste widget scripts here: Boulevard SBO, Klaviyo popup,
-       chat widgets, HubSpot chatbot, Intercom, etc.
+       BODY SNIPPETS — paste widget scripts here
        ============================================================ -->
+  <script src="https://booking.boulevard.io/widget.js"></script>
+
 
 </body>
 </html>

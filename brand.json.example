@@ -1,0 +1,46 @@
+{
+  "brand": {
+    "name": "My Brand",
+    "tagline": "Your tagline here",
+    "industry": "salon"
+  },
+  "contact": {
+    "address": "123 Main Street",
+    "cityState": "Your City, ST 00000",
+    "phone": "(555) 123-4567",
+    "email": "hello@yourbrand.com"
+  },
+  "social": {
+    "instagram": "",
+    "tiktok": "",
+    "facebook": ""
+  },
+  "colors": {
+    "background": "#ffffff",
+    "text": "#222222",
+    "accent": "#2a5bd7",
+    "border": "#e5e5e5"
+  },
+  "fonts": {
+    "heading": "system-ui",
+    "body": "system-ui"
+  },
+  "pages": {
+    "home": "y",
+    "about": "n",
+    "services": "n",
+    "contact": "n",
+    "brandGuide": "y"
+  },
+  "boulevard": {
+    "businessId": "",
+    "apiKey": "",
+    "environment": "sandbox"
+  },
+  "integrations": {
+    "klaviyoSiteId": "",
+    "hubspotPortalId": "",
+    "googleAnalyticsId": "",
+    "metaPixelId": ""
+  }
+}
