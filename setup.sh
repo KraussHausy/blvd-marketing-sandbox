@@ -7,6 +7,41 @@
 
 set -e
 
+# ---- Color name → hex converter ----
+color_to_hex() {
+  local input="$1"
+  # Already a hex code — pass through
+  if [[ "$input" =~ ^# ]]; then echo "$input"; return; fi
+
+  case "$(echo "$input" | tr '[:upper:]' '[:lower:]')" in
+    white)       echo "#ffffff" ;;
+    black)       echo "#000000" ;;
+    red)         echo "#e53e3e" ;;
+    blue)        echo "#3182ce" ;;
+    navy)        echo "#1a365d" ;;
+    green)       echo "#38a169" ;;
+    gold)        echo "#b8860b" ;;
+    yellow)      echo "#ecc94b" ;;
+    orange)      echo "#dd6b20" ;;
+    purple)      echo "#805ad5" ;;
+    pink)        echo "#d53f8c" ;;
+    teal)        echo "#319795" ;;
+    coral)       echo "#f56565" ;;
+    gray|grey)   echo "#a0aec0" ;;
+    charcoal)    echo "#2d3748" ;;
+    cream)       echo "#faf8f5" ;;
+    ivory)       echo "#fffff0" ;;
+    beige)       echo "#f5f0e8" ;;
+    sage)        echo "#9caf88" ;;
+    lavender)    echo "#b794f4" ;;
+    rose)        echo "#feb2b2" ;;
+    blush)       echo "#fcd5ce" ;;
+    slate)       echo "#4a5568" ;;
+    taupe)       echo "#8b7d6b" ;;
+    *)           echo "$input" ;;  # unknown — pass through as-is
+  esac
+}
+
 BOLD='\033[1m'
 DIM='\033[2m'
 GREEN='\033[0;32m'
@@ -61,20 +96,20 @@ read -p "Facebook URL: " FACEBOOK
 
 # ---- Colors ----
 echo ""
-echo -e "${CYAN}── Brand Colors (hex codes) ──${RESET}"
-echo -e "${DIM}Tip: use your brand guide or pick from coolors.co${RESET}"
+echo -e "${CYAN}── Brand Colors ──${RESET}"
+echo -e "${DIM}Type a color name (gold, teal, cream…) or a hex code (#b8860b).${RESET}"
 
 read -p "Background color [#ffffff]: " COLOR_BG
-COLOR_BG="${COLOR_BG:-#ffffff}"
+COLOR_BG="$(color_to_hex "${COLOR_BG:-#ffffff}")"
 
 read -p "Text color [#222222]: " COLOR_TEXT
-COLOR_TEXT="${COLOR_TEXT:-#222222}"
+COLOR_TEXT="$(color_to_hex "${COLOR_TEXT:-#222222}")"
 
 read -p "Accent color [#2a5bd7]: " COLOR_ACCENT
-COLOR_ACCENT="${COLOR_ACCENT:-#2a5bd7}"
+COLOR_ACCENT="$(color_to_hex "${COLOR_ACCENT:-#2a5bd7}")"
 
 read -p "Border color [#e5e5e5]: " COLOR_BORDER
-COLOR_BORDER="${COLOR_BORDER:-#e5e5e5}"
+COLOR_BORDER="$(color_to_hex "${COLOR_BORDER:-#e5e5e5}")"
 
 # ---- Fonts ----
 echo ""

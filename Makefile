@@ -11,6 +11,11 @@ help: ## Show all available commands
 setup: ## Run the setup wizard (first time only)
 	@./setup.sh
 
+quickstart: ## Copy the mad-libs template to brand.json for manual editing
+	@cp brand-quickstart.json brand.json
+	@echo "✓ Copied brand-quickstart.json → brand.json"
+	@echo "→ Open brand.json, fill in the blanks, then run: make build"
+
 build: ## Regenerate site from brand.json + templates
 	@node scripts/generate.js
 
