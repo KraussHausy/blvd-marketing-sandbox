@@ -1,38 +1,48 @@
 # Boulevard Marketing Sandbox
 
-A blank canvas for testing marketing workflows with Boulevard. Clone it, run the setup wizard, and you'll have a branded site in under 2 minutes.
+A blank canvas for testing marketing workflows with Boulevard. Clone it, paste a prompt, and you'll have a branded site in 30 seconds.
 
 ## 30-Second Start
 
-Pick whichever style suits you:
-
-**Option A — Interactive wizard** (guided prompts):
 ```bash
 git clone https://github.com/KraussHausy/blvd-marketing-sandbox.git
 cd blvd-marketing-sandbox
-./setup.sh        # answer the prompts → generates your branded site
-make serve         # preview at http://localhost:8080
 ```
 
-**Option B — Mad libs** (fill in a template yourself):
-```bash
-git clone https://github.com/KraussHausy/blvd-marketing-sandbox.git
-cd blvd-marketing-sandbox
-make quickstart    # copies the template to brand.json
-# open brand.json, replace the blanks, save
-make build         # generate your site
-make serve         # preview at http://localhost:8080
-```
+Then copy the prompt below, fill in the blanks, and paste it into Claude Code:
 
-Both paths produce the same result — a branded static site generated from `brand.json`.
+---
+
+> **Set up my marketing sandbox.**
+>
+> - **Brand name:** ___________
+> - **Tagline:** ___________
+> - **Industry:** salon / spa / medspa / barbershop / wellness / other
+> - **Colors:** accent = ___________ , background = ___________ (color names or hex codes)
+> - **Fonts:** heading = ___________ , body = ___________ (Google Fonts or "system-ui")
+> - **Pages I want:** home, about, services, contact, brand guide (delete any you don't need)
+> - **Address:** ___________
+> - **Phone:** ___________
+> - **Email:** ___________
+> - **Instagram:** ___________
+>
+> Generate my brand.json, run `make build`, and start the preview server.
+
+---
+
+That's it. Claude creates your config, generates the site, and opens a preview. Change anything later by editing `brand.json` and running `make build`.
+
+### Without Claude
+
+You can also set up manually:
+- `./setup.sh` — interactive terminal wizard
+- `make quickstart` — copy a template to `brand.json`, fill it in, run `make build`
 
 ## Commands
 
 | Command | What it does |
 |---------|-------------|
-| `./setup.sh` | Interactive setup wizard — run once to create `brand.json` and generate your site |
-| `make quickstart` | Copy the mad-libs template to `brand.json` for manual editing |
-| `make build` | Regenerate the site from `brand.json` + templates (after editing brand.json) |
+| `make build` | Generate (or regenerate) the site from `brand.json` |
 | `make serve` | Start local preview server on port 8080 |
 | `make add-page NAME=pricing` | Create a new blank page |
 | `make api-setup` | Install API dependencies and create `.env` |
@@ -40,24 +50,20 @@ Both paths produce the same result — a branded static site generated from `bra
 | `make sync` | Export all Boulevard clients as JSON |
 | `make clean` | Remove generated HTML (keeps templates + config) |
 | `make help` | Show all commands |
+| `./setup.sh` | Interactive terminal wizard (alternative to the prompt) |
+| `make quickstart` | Copy a fill-in-the-blanks template to `brand.json` |
 
 ## How It Works
 
 ```
-brand.json          ← your brand config (created by setup.sh)
-     ↓
-templates/          ← HTML templates with {{placeholders}}
-     ↓
-scripts/generate.js ← reads config, fills templates, writes site files
-     ↓
-index.html, about.html, css/style.css, etc.  ← your branded site
+Your prompt → Claude writes brand.json → make build → branded site
 ```
 
-**Edit `brand.json` → run `make build` → site updates.** Change your colors, fonts, brand name, or which pages exist — all from one config file.
+Everything flows from `brand.json` — one config file that drives the whole site. Edit it and run `make build` anytime to regenerate.
 
 ## What Gets Generated
 
-The setup wizard asks which pages you want. All pages include:
+Every page includes:
 - Your brand name, colors, and fonts applied automatically
 - `<!-- HEAD SNIPPETS -->` zone for tracking scripts (Klaviyo, GA4, Meta Pixel, HubSpot)
 - `<!-- BODY SNIPPETS -->` zone for widgets (Boulevard SBO, chat, popups)
