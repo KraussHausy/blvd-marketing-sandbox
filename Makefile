@@ -1,4 +1,4 @@
-.PHONY: help setup build serve api-setup webhooks sync clean add-page
+.PHONY: help setup build serve api-setup webhooks sync clean add-page snippets test-snippets add-snippet remove-snippet
 
 help: ## Show all available commands
 	@echo ""
@@ -44,3 +44,17 @@ clean: ## Remove generated HTML files (keeps templates and brand.json)
 add-page: ## Create a new blank page (usage: make add-page NAME=pricing)
 	@if [ -z "$(NAME)" ]; then echo "Usage: make add-page NAME=pricing"; exit 1; fi
 	@node scripts/add-page.js $(NAME)
+
+snippets: ## Scan all pages for installed marketing snippets
+	@node scripts/snippets.js scan
+
+test-snippets: ## Scan + test if snippet URLs are reachable
+	@node scripts/snippets.js test
+
+add-snippet: ## Inject a snippet into all pages (usage: make add-snippet PLATFORM=klaviyo ID=xxx)
+	@if [ -z "$(PLATFORM)" ]; then node scripts/snippets.js; exit 1; fi
+	@node scripts/snippets.js add $(PLATFORM) $(ID)
+
+remove-snippet: ## Remove a snippet from all pages (usage: make remove-snippet PLATFORM=klaviyo)
+	@if [ -z "$(PLATFORM)" ]; then node scripts/snippets.js; exit 1; fi
+	@node scripts/snippets.js remove $(PLATFORM)

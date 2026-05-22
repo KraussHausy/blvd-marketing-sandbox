@@ -182,6 +182,21 @@ Note: ngrok is widely used for local webhook development (including across Boule
 
 ---
 
+## Snippet Manager
+
+Manage marketing snippets across all your pages from the terminal:
+
+```bash
+make snippets                              # scan — what's installed and where
+make test-snippets                         # scan + check if snippet URLs are reachable
+make add-snippet PLATFORM=klaviyo ID=xxx   # inject into all pages
+make remove-snippet PLATFORM=klaviyo       # remove from all pages
+```
+
+Supported platforms: `klaviyo`, `ga4`, `meta-pixel`, `hubspot`, `mailchimp`, `blvd-sbo`
+
+---
+
 ## Setting Up Forms
 
 ### Klaviyo
