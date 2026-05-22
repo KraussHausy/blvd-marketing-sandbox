@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Guide | Glow Studio</title>
+  <title>Brand Guide | Test Brand</title>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #faf8f5;
-      --text: #2d2926;
-      --accent: #b8860b;
-      --border: #e8e4df;
+      --bg: red;
+      --text: blue;
+      --accent: grey;
+      --border: black;
       --muted: #777777;
     }
-    body { font-family: 'Inter', system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+    body { font-family: system-ui, -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
     .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-    h1 { font-family: 'Playfair Display', system-ui, sans-serif; font-size: 2rem; margin-bottom: 0.5rem; }
-    h2 { font-family: 'Playfair Display', system-ui, sans-serif; font-size: 1.4rem; margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    h1 { font-family: system-ui, -apple-system, sans-serif; font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-family: system-ui, -apple-system, sans-serif; font-size: 1.4rem; margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
     .swatch-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
     .swatch { width: 120px; }
     .swatch-block { height: 60px; border-radius: 6px; border: 1px solid var(--border); }
@@ -31,7 +31,7 @@
 <body>
   <div class="container">
 
-    <h1>Glow Studio — Brand Guide</h1>
+    <h1>Test Brand — Brand Guide</h1>
     <p class="note">Generated from brand.json. Edit that file and run <code>make build</code> to regenerate.</p>
 
     <h2>Logo</h2>
@@ -40,28 +40,28 @@
     <h2>Colors</h2>
     <div class="swatch-row">
       <div class="swatch">
-        <div class="swatch-block" style="background: #2d2926;"></div>
-        <div class="swatch-label">Text<br><code>#2d2926</code></div>
+        <div class="swatch-block" style="background: blue;"></div>
+        <div class="swatch-label">Text<br><code>blue</code></div>
       </div>
       <div class="swatch">
-        <div class="swatch-block" style="background: #b8860b;"></div>
-        <div class="swatch-label">Accent<br><code>#b8860b</code></div>
+        <div class="swatch-block" style="background: grey;"></div>
+        <div class="swatch-label">Accent<br><code>grey</code></div>
       </div>
       <div class="swatch">
-        <div class="swatch-block" style="background: #e8e4df;"></div>
-        <div class="swatch-label">Border<br><code>#e8e4df</code></div>
+        <div class="swatch-block" style="background: black;"></div>
+        <div class="swatch-label">Border<br><code>black</code></div>
       </div>
       <div class="swatch">
-        <div class="swatch-block" style="background: #faf8f5; border: 1px solid #e8e4df;"></div>
-        <div class="swatch-label">Background<br><code>#faf8f5</code></div>
+        <div class="swatch-block" style="background: red; border: 1px solid black;"></div>
+        <div class="swatch-label">Background<br><code>red</code></div>
       </div>
     </div>
 
     <h2>Typography</h2>
     <table>
       <tr><th>Usage</th><th>Font</th></tr>
-      <tr><td>Headings</td><td>Playfair Display</td></tr>
-      <tr><td>Body</td><td>Inter</td></tr>
+      <tr><td>Headings</td><td>system-ui</td></tr>
+      <tr><td>Body</td><td>system-ui</td></tr>
     </table>
 
     <h2>Tone of Voice</h2>

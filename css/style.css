@@ -1,11 +1,11 @@
 :root {
-  --color-bg:      #faf8f5;
-  --color-text:    #2d2926;
+  --color-bg:      red;
+  --color-text:    blue;
   --color-muted:   #777777;
-  --color-accent:  #b8860b;
-  --color-border:  #e8e4df;
-  --font-body:     'Inter', system-ui, sans-serif;
-  --font-heading:  'Playfair Display', system-ui, sans-serif;
+  --color-accent:  grey;
+  --color-border:  black;
+  --font-body:     system-ui, -apple-system, sans-serif;
+  --font-heading:  system-ui, -apple-system, sans-serif;
   --max-width:     1100px;
   --space:         2rem;
 }

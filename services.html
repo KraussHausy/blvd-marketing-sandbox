@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Test Brand</title>
+  <title>Services | Test Brand</title>
   <link rel="stylesheet" href="css/style.css">
 
   <!-- ============================================================
@@ -16,7 +16,7 @@
   <nav>
     <a href="index.html"><strong>Test Brand</strong></a>
     <ul>
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -25,38 +25,31 @@
   </nav>
 
   <main>
-    <section class="hero">
-      <h1>Test Brand</h1>
-      <p class="tagline">tet tagline</p>
-      <div class="hero-actions">
-        <a href="services.html" class="btn btn-primary">View Services</a>
-        <a href="contact.html" class="btn btn-outline">Get in Touch</a>
-      </div>
-    </section>
-
-    <!-- Add your content below. Some ideas:
+    <header class="page-header">
+      <h1>Services</h1>
+    </header>
 
     <section>
-      <h2>About</h2>
-      <p>Your story here.</p>
-    </section>
+      <!-- Add your services as cards. Example:
 
-    <section>
-      <h2>Services</h2>
       <div class="grid">
-        <div class="card">
+        <div class="card" data-sku="SVC-001" data-blvd-service-id="">
           <h3>Service Name</h3>
-          <p>Description — $price — duration</p>
+          <p>What the client gets. How long it takes.</p>
+          <p><strong>$50</strong> · 45 min</p>
         </div>
       </div>
+
+      Tip: add data-blvd-service-id to map each card to a Boulevard service.
+      -->
     </section>
 
-    <section id="newsletter">
-      <h2>Stay in the Loop</h2>
-      Replace this with your Klaviyo / Mailchimp / HubSpot form embed.
+    <!-- Boulevard SBO booking widget zone -->
+    <section id="booking">
+      <!-- Paste your Boulevard booking embed here:
+      <blvd-book-button business-id="YOUR_ID">Book Now</blvd-book-button>
+      -->
     </section>
-
-    -->
   </main>
 
   <footer>
