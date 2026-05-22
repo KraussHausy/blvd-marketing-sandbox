@@ -185,17 +185,26 @@ Note: ngrok is widely used for local webhook development (including across Boule
 ## Setting Up Forms
 
 ### Klaviyo
-1. Klaviyo > Sign Up Forms > Create Form > Publish
-2. Paste the `<script>` into `<!-- HEAD SNIPPETS -->`
-3. For embedded forms, paste the `<div>` where you want it
+1. Klaviyo > Sign Up Forms > Create Form > choose **Popup** or **Flyout**
+2. Design your form, set targeting/triggers, click Publish
+3. Paste the Klaviyo site snippet into `<!-- HEAD SNIPPETS -->`:
+   ```html
+   <script async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YOUR_SITE_ID"></script>
+   ```
+4. That's it — the popup loads automatically based on your Klaviyo targeting rules. No extra HTML needed on the page.
+
+### Mailchimp
+1. Mailchimp > Audience > Signup Forms > **Subscriber Pop-up**
+2. Design your popup, set display rules, click Save
+3. Mailchimp gives you a JS snippet — paste it into `<!-- HEAD SNIPPETS -->`:
+   ```html
+   <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/YOUR_ID/YOUR_HASH.js");</script>
+   ```
+4. The popup fires automatically based on your Mailchimp display rules.
 
 ### HubSpot
 1. HubSpot > Marketing > Forms > Create Form > Publish > Embed
 2. Paste the `<script>` + `<div>` into your page, replacing the placeholder form
-
-### Mailchimp
-1. Mailchimp > Audience > Signup Forms > Embedded Forms
-2. Copy the HTML and paste where you want the form
 
 ### Boulevard SBO (booking widget)
 1. Boulevard > Settings > Online Booking > Self-Booking Online
